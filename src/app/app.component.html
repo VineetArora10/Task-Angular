@@ -1,0 +1,29 @@
+<div class="body">
+<h2 id="logo">POC</h2>
+<div id="input">
+  <label for="ename">Employee Name: </label>
+  <input type="text" name="ename" id="ename" [(ngModel)]="EmpName">
+  <label for="eno">Employee Number: </label>
+  <input type="text" name="eno" id="eno" [(ngModel)]="EmpNo">
+  <button (click)="submit()" class="btn">Submit</button>
+</div>
+
+<table id="table">
+  <tr>
+    <th>SNo.</th>
+    <th>Employee Name</th>
+    <th>Employee Number</th>
+    <th>Action</th>
+  </tr>
+
+  <tr *ngFor="let item of arr; index as ind">
+    <td *ngIf="item.sno%2==0" class="green">{{item.sno}}</td>
+    <td *ngIf="item.sno%2!=0" class="red">{{item.sno}}</td>
+    <td *ngIf="item.sno%2==0" class="green">{{item.name}}</td>
+    <td *ngIf="item.sno%2!=0" class="red">{{item.name}}</td>
+    <td *ngIf="item.sno%2==0" class="green">{{item.no}}</td>
+    <td *ngIf="item.sno%2!=0" class="red">{{item.no}}</td>
+    <td><button (click)="delete(ind)" id="del">Delete</button></td>
+  </tr>
+</table>
+</div>
